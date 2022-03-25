@@ -61,7 +61,6 @@ class AppStore {
         let checker = false;
         if (this.searchInput?.categoryId) {
             const isExists = key.includes(this.searchInput?.categoryId ? (this.searchInput?.categoryId === "all" ? "" : this.searchInput?.categoryId) : "");
-            console.log("Search input >>> ", this.searchInput?.categoryId, this.searchInput?.name, isFound, key, isExists, isFound === true && isExists === true);
             checker = isFound ? ((isFound && isExists)) : isExists;
             if (checker) {
                 if (this.searchInput?.genderId) {
@@ -95,7 +94,6 @@ class AppStore {
             let genderFound = true;
             if(this.searchInput?.name) {
                 nameFound = key.includes((this.searchInput?.name).toLowerCase());
-                console.log("in name >>>", nameFound);
             }
             if(this.searchInput?.categoryId) {
                 if(this.searchInput?.categoryId.toLocaleLowerCase() === "all") {
@@ -103,7 +101,6 @@ class AppStore {
                 } else {
                     categoryFound = key.includes(this.searchInput?.categoryId ?? "all");
                 }
-                console.log("in category >>>", categoryFound, this.searchInput?.categoryId);
             }
             if(this.searchInput?.genderId) {
                 if(this.searchInput?.genderId.toLocaleLowerCase() === "all") {
@@ -111,10 +108,7 @@ class AppStore {
                 } else {
                     genderFound = key.includes(this.searchInput?.genderId ?? "all");
                 }
-
-                console.log("in gender >>>", genderFound, this.searchInput?.genderId);
             }
-            console.log(this.searchInput, nameFound, categoryFound, genderFound);
             if(nameFound && categoryFound && genderFound) {
                 const elt: any = this.list.get(item);
                 this.resultSearch.set(elt?.name + "/" + elt?.genreId + "/" + elt?.categoryId, elt);
