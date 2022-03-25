@@ -57,8 +57,9 @@ class AddAppController {
     }
 
     async onSuccess(response: any) {
-        const data = await response.json();
-        return data;
+        console.log("response >>> ", response);
+        const {data} = await response;
+        return data ?? null;
     }
 
     onSubmit(data: any, action: any) {
